@@ -1,0 +1,39 @@
+﻿@page "/"
+
+@using Syncfusion.Blazor.Lists
+@using System.Xml.Linq;
+
+<SfListView DataSource="@Data">
+    <ListViewFieldSettings TValue="DataModel" Id="Id" Text="Text"></ListViewFieldSettings>
+</SfListView>
+
+@code {
+    public class DataModel
+    {
+        public string Text { get; set; }
+        public string Id { get; set; }
+    }
+
+    private List<DataModel> Data = new List<DataModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetData();
+    }
+
+    // Read the XML file and extract the data
+    private async Task GetData()
+    {
+        var xmlFilePath = "Pages/XMLFile.xml"; // Replace with the actual path
+        var xmlContent = await File.ReadAllTextAsync(xmlFilePath);
+        var xmlDoc = XDocument.Parse(xmlContent);
+        Data = xmlDoc.Descendants("item")
+                     .Select(item => new DataModel
+                         {
+                             Text = item.Element("Text").Value,
+                             Id = item.Element("Id").Value
+                         })
+                     .ToList();
+    }
+
+}

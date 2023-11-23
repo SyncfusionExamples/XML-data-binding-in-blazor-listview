@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+	<item>
+		<Text>ArtWork</Text>
+		<Id>list-01</Id>
+	</item>
+	<item>
+		<Text>Abstract</Text>
+		<Id>list-02</Id>
+	</item>
+	<item>
+		<Text>Modern Painting</Text>
+		<Id>list-03</Id>
+	</item>
+	<item>
+		<Text>Ceramics</Text>
+		<Id>list-04</Id>
+	</item>
+	<item>
+		<Text>Animation Art</Text>
+		<Id>list-05</Id>
+	</item>
+	<item>
+		<Text>Oil Painting</Text>
+		<Id>list-06</Id>
+	</item>
+</items>
